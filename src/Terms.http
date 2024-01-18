@@ -1,0 +1,8 @@
+### post terms
+POST http://localhost:8080/terms
+Content-Type: application/json
+
+{
+  "name": "대출 이용 약관",
+  "termsDetailUrl": "https://abc-storage.acc/abcdefg"
+}
