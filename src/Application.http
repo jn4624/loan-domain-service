@@ -11,3 +11,14 @@ Content-Type: application/json
 
 ### get applications
 GET http://localhost:8080/applications/1
+
+### put applications
+PUT http://localhost:8080/applications/1
+Content-Type: application/json
+
+{
+  "name": "Member Lim",
+  "cellPhone": "010-1234-5678",
+  "email": "abcdefg@naver.com",
+  "hopeAmount": 10000000
+}
