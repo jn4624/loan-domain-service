@@ -1,0 +1,10 @@
+### post applications
+POST http://localhost:8080/applications
+Content-Type: application/json
+
+{
+  "name": "Member Lim",
+  "cellPhone": "010-1234-5678",
+  "email": "abcdefg@naver.com",
+  "hopeAmount": 50000000
+}
