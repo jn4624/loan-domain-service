@@ -1,0 +1,13 @@
+### post counsele
+POST http://localhost:8080/counsels
+Content-Type: application/json
+
+{
+  "name": "Member Lim",
+  "cellPhone": "010-1234-5678",
+  "email": "abcdefg@naver.com",
+  "memo": "대출 받고 싶어요. 연락주세요.",
+  "address": "서울특별시 어딘구 모른동",
+  "addressDetail": "123동 345호",
+  "zipCode": "12345"
+}
