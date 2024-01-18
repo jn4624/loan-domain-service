@@ -28,3 +28,6 @@ Content-Type: application/json
   "addressDetail": "123동 345호",
   "zipCode": "12345"
 }
+
+### delete counsels
+DELETE http://localhost:8080/counsels/1
