@@ -1,4 +1,4 @@
-### post counsele
+### post counsels
 POST http://localhost:8080/counsels
 Content-Type: application/json
 
@@ -11,3 +11,6 @@ Content-Type: application/json
   "addressDetail": "123동 345호",
   "zipCode": "12345"
 }
+
+### get counsels
+GET http://localhost:8080/counsels/2
