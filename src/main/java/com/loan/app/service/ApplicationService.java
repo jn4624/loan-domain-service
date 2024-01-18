@@ -5,4 +5,6 @@ import com.loan.app.dto.ApplicationDTO.Response;
 
 public interface ApplicationService {
     Response create(Request request);
+
+    Response get(Long applicationId);
 }

@@ -3,7 +3,10 @@ package com.loan.app.service;
 import com.loan.app.domain.Application;
 import com.loan.app.dto.ApplicationDTO.Request;
 import com.loan.app.dto.ApplicationDTO.Response;
+import com.loan.app.exception.BaseException;
+import com.loan.app.exception.ResultType;
 import com.loan.app.repository.ApplicationRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -51,5 +55,29 @@ public class ApplicationServiceTest {
 
         assertThat(actual.getHopeAmount()).isSameAs(entity.getHopeAmount());
         assertThat(actual.getName()).isSameAs(entity.getName());
+    }
+
+    @Test
+    void Should_ReturnResponseOfExistApplicationEntity_When_RequestExistApplicationId() {
+        Long findId = 1L;
+
+        Application entity = Application.builder()
+                .applicationId(1L)
+                .build();
+
+        when(applicationRepository.findById(findId)).thenReturn(Optional.ofNullable(entity));
+
+        Response actual = applicationService.get(findId);
+
+        assertThat(actual.getApplicationId()).isSameAs(findId);
+    }
+
+    @Test
+    void Should_ThrowException_When_RequestNotExistApplicationId() {
+        Long findId = 1L;
+
+        when(applicationRepository.findById(findId)).thenThrow(new BaseException(ResultType.SYSTEM_ERROR));
+
+        Assertions.assertThrows(BaseException.class, () -> applicationService.get(findId));
     }
 }

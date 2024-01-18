@@ -8,3 +8,6 @@ Content-Type: application/json
   "email": "abcdefg@naver.com",
   "hopeAmount": 50000000
 }
+
+### get applications
+GET http://localhost:8080/applications/1
