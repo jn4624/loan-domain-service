@@ -13,4 +13,18 @@ Content-Type: application/json
 }
 
 ### get counsels
-GET http://localhost:8080/counsels/2
+GET http://localhost:8080/counsels/1
+
+### put counsels
+PUT http://localhost:8080/counsels/1
+Content-Type: application/json
+
+{
+  "name": "Member Kim",
+  "cellPhone": "010-5678-1234",
+  "email": "abcdefg@naver.com",
+  "memo": "대출 받고 싶어요. 연락주세요.",
+  "address": "서울특별시 어딘구 모른동",
+  "addressDetail": "123동 345호",
+  "zipCode": "12345"
+}
