@@ -22,3 +22,6 @@ Content-Type: application/json
   "email": "abcdefg@naver.com",
   "hopeAmount": 10000000
 }
+
+### delete applications
+DELETE http://localhost:8080/applications/1

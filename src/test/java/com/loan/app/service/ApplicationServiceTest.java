@@ -102,4 +102,20 @@ public class ApplicationServiceTest {
         assertThat(actual.getApplicationId()).isSameAs(findId);
         assertThat(actual.getHopeAmount()).isSameAs(request.getHopeAmount());
     }
+
+    @Test
+    void Should_DeletedApplicationEntity_When_RequestDeleteExistApplicationInfo() {
+        Long targetId = 1L;
+
+        Application entity = Application.builder()
+                .applicationId(1L)
+                .build();
+
+        when(applicationRepository.save(any(Application.class))).thenReturn(entity);
+        when(applicationRepository.findById(targetId)).thenReturn(Optional.ofNullable(entity));
+
+        applicationService.delete(targetId);
+
+        assertThat(entity.isDeleted()).isSameAs(true);
+    }
 }
